@@ -8,6 +8,25 @@ message SumRequest {
 message SumResponse {
   int32 sum_result = 1;
 }
+// Entities
+message Note {
+  int32 id = 1;
+  string title = 2;
+  string description = 3;
+
+}
+
+//request
+message NoteFindRequest{
+
+  int32 id = 1;
+}
+
+//responses
+message NoteFindResponse {
+  Note note =1;
+}
 service CalculatorService {
   rpc Sum(SumRequest) returns (SumResponse) {};
+  rpc Find( stream NoteFindRequest) returns (NoteFindResponse)
 }
