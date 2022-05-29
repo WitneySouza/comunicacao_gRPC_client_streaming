@@ -24,8 +24,8 @@ public class CalculatorClient {
         CalculatorServiceGrpc.CalculatorServiceBlockingStub stub =
                 CalculatorServiceGrpc.newBlockingStub(channel);
         SumRequest request = SumRequest.newBuilder()
-                .setFirstNumber(11)
-                .setSecondNumber(50)
+                .setFirstNumber(40)
+                .setSecondNumber(40)
                 .build();
         SumResponse response = stub.sum(request);
         System.out.println(request.getFirstNumber() + " + " +
