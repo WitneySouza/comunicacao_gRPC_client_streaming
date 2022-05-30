@@ -24,6 +24,16 @@ public final class Calculator {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_SumResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_MeanGeometricAverageRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_MeanGeometricAverageRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_MeanGeometricAverageResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_MeanGeometricAverageResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -35,10 +45,14 @@ public final class Calculator {
     java.lang.String[] descriptorData = {
       "\n\020calculator.proto\"9\n\nSumRequest\022\024\n\014firs" +
       "t_number\030\001 \001(\005\022\025\n\rsecond_number\030\002 \001(\005\"!\n" +
-      "\013SumResponse\022\022\n\nsum_result\030\001 \001(\00527\n\021Calc" +
-      "ulatorService\022\"\n\003Sum\022\013.SumRequest\032\014.SumR" +
-      "esponse\"\000B\037\n\033br.edu.ifg.proto.calculator" +
-      "P\001b\006proto3"
+      "\013SumResponse\022\022\n\nsum_result\030\001 \001(\005\"-\n\033Mean" +
+      "GeometricAverageRequest\022\016\n\006number\030\001 \001(\005\"" +
+      "/\n\034MeanGeometricAverageResponse\022\017\n\007avera" +
+      "ge\030\001 \001(\0012\220\001\n\021CalculatorService\022\"\n\003Sum\022\013." +
+      "SumRequest\032\014.SumResponse\"\000\022W\n\024MeanGeomet" +
+      "ricAverage\022\034.MeanGeometricAverageRequest" +
+      "\032\035.MeanGeometricAverageResponse\"\000(\001B\037\n\033b" +
+      "r.edu.ifg.proto.calculatorP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -56,6 +70,18 @@ public final class Calculator {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SumResponse_descriptor,
         new java.lang.String[] { "SumResult", });
+    internal_static_MeanGeometricAverageRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_MeanGeometricAverageRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_MeanGeometricAverageRequest_descriptor,
+        new java.lang.String[] { "Number", });
+    internal_static_MeanGeometricAverageResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_MeanGeometricAverageResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_MeanGeometricAverageResponse_descriptor,
+        new java.lang.String[] { "Average", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

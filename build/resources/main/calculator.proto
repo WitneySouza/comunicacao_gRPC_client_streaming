@@ -1,6 +1,7 @@
 syntax = "proto3";
 option java_package = "br.edu.ifg.proto.calculator";
 option java_multiple_files = true;
+
 message SumRequest {
   int32 first_number = 1;
   int32 second_number = 2;
@@ -8,6 +9,16 @@ message SumRequest {
 message SumResponse {
   int32 sum_result = 1;
 }
+
+message MeanGeometricAverageRequest{
+  int32 number = 1;
+}
+
+message MeanGeometricAverageResponse{
+  double  average = 1;
+}
+
 service CalculatorService {
   rpc Sum(SumRequest) returns (SumResponse) {};
+  rpc MeanGeometricAverage(stream MeanGeometricAverageRequest) returns (MeanGeometricAverageResponse) {};
 }

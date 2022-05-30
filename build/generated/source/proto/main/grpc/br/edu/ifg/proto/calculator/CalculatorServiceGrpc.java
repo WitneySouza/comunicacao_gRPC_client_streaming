@@ -45,6 +45,37 @@ public final class CalculatorServiceGrpc {
     return getSumMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<br.edu.ifg.proto.calculator.MeanGeometricAverageRequest,
+      br.edu.ifg.proto.calculator.MeanGeometricAverageResponse> getMeanGeometricAverageMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "MeanGeometricAverage",
+      requestType = br.edu.ifg.proto.calculator.MeanGeometricAverageRequest.class,
+      responseType = br.edu.ifg.proto.calculator.MeanGeometricAverageResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+  public static io.grpc.MethodDescriptor<br.edu.ifg.proto.calculator.MeanGeometricAverageRequest,
+      br.edu.ifg.proto.calculator.MeanGeometricAverageResponse> getMeanGeometricAverageMethod() {
+    io.grpc.MethodDescriptor<br.edu.ifg.proto.calculator.MeanGeometricAverageRequest, br.edu.ifg.proto.calculator.MeanGeometricAverageResponse> getMeanGeometricAverageMethod;
+    if ((getMeanGeometricAverageMethod = CalculatorServiceGrpc.getMeanGeometricAverageMethod) == null) {
+      synchronized (CalculatorServiceGrpc.class) {
+        if ((getMeanGeometricAverageMethod = CalculatorServiceGrpc.getMeanGeometricAverageMethod) == null) {
+          CalculatorServiceGrpc.getMeanGeometricAverageMethod = getMeanGeometricAverageMethod =
+              io.grpc.MethodDescriptor.<br.edu.ifg.proto.calculator.MeanGeometricAverageRequest, br.edu.ifg.proto.calculator.MeanGeometricAverageResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "MeanGeometricAverage"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  br.edu.ifg.proto.calculator.MeanGeometricAverageRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  br.edu.ifg.proto.calculator.MeanGeometricAverageResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new CalculatorServiceMethodDescriptorSupplier("MeanGeometricAverage"))
+              .build();
+        }
+      }
+    }
+    return getMeanGeometricAverageMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -100,6 +131,13 @@ public final class CalculatorServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSumMethod(), responseObserver);
     }
 
+    /**
+     */
+    public io.grpc.stub.StreamObserver<br.edu.ifg.proto.calculator.MeanGeometricAverageRequest> meanGeometricAverage(
+        io.grpc.stub.StreamObserver<br.edu.ifg.proto.calculator.MeanGeometricAverageResponse> responseObserver) {
+      return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getMeanGeometricAverageMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -109,6 +147,13 @@ public final class CalculatorServiceGrpc {
                 br.edu.ifg.proto.calculator.SumRequest,
                 br.edu.ifg.proto.calculator.SumResponse>(
                   this, METHODID_SUM)))
+          .addMethod(
+            getMeanGeometricAverageMethod(),
+            io.grpc.stub.ServerCalls.asyncClientStreamingCall(
+              new MethodHandlers<
+                br.edu.ifg.proto.calculator.MeanGeometricAverageRequest,
+                br.edu.ifg.proto.calculator.MeanGeometricAverageResponse>(
+                  this, METHODID_MEAN_GEOMETRIC_AVERAGE)))
           .build();
     }
   }
@@ -133,6 +178,14 @@ public final class CalculatorServiceGrpc {
         io.grpc.stub.StreamObserver<br.edu.ifg.proto.calculator.SumResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getSumMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public io.grpc.stub.StreamObserver<br.edu.ifg.proto.calculator.MeanGeometricAverageRequest> meanGeometricAverage(
+        io.grpc.stub.StreamObserver<br.edu.ifg.proto.calculator.MeanGeometricAverageResponse> responseObserver) {
+      return io.grpc.stub.ClientCalls.asyncClientStreamingCall(
+          getChannel().newCall(getMeanGeometricAverageMethod(), getCallOptions()), responseObserver);
     }
   }
 
@@ -182,6 +235,7 @@ public final class CalculatorServiceGrpc {
   }
 
   private static final int METHODID_SUM = 0;
+  private static final int METHODID_MEAN_GEOMETRIC_AVERAGE = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -214,6 +268,9 @@ public final class CalculatorServiceGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_MEAN_GEOMETRIC_AVERAGE:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.meanGeometricAverage(
+              (io.grpc.stub.StreamObserver<br.edu.ifg.proto.calculator.MeanGeometricAverageResponse>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -266,6 +323,7 @@ public final class CalculatorServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new CalculatorServiceFileDescriptorSupplier())
               .addMethod(getSumMethod())
+              .addMethod(getMeanGeometricAverageMethod())
               .build();
         }
       }
