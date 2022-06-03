@@ -18,7 +18,7 @@ public class CalculatorServiceImpl extends
     @Override
     public StreamObserver<MeanGeometricAverageRequest> meanGeometricAverage(StreamObserver<MeanGeometricAverageResponse> responseObserver) {
         StreamObserver<MeanGeometricAverageRequest> requestObserver = new StreamObserver<MeanGeometricAverageRequest>() {
-            int a = 2;
+            int a = 1;
             int b = 1;
 
             @Override
@@ -34,12 +34,13 @@ public class CalculatorServiceImpl extends
 
             @Override
             public void onCompleted() {
-                float a,b;
-                a = 5;
+                float a,b,c;
+                a = 6;
                 b = 5;
+                c = 7;
 
                 float mg;
-                mg= (float) Math.exp((Math.log((a*b)))/2);
+                mg= (float) Math.exp((Math.log((a*b*c)))/3);
                 float average = mg;
                 responseObserver.onNext(
                         MeanGeometricAverageResponse.newBuilder()
